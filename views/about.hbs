@@ -1,10 +1,98 @@
 {{> menu id="about"}}
 
 <section class="ui left aligned middle aligned segment">
-  
-    <h2>About</h2>
-      <p>
-        Playlists will be displayed here
-      </p>
 
+  <h2>About the Zoo</h2>
+  <p>
+    Meet our staff!
+  </p>
+  <div class="ui centered link cards">
+    {{#each employees}}
+    <div class="ui card">
+      <div class="image">
+        <img src={{image}}>
+      </div>
+      <div class="content">
+        <a class="header"> {{fullname}} </a>
+        <div class="meta">
+          <span class="date">Joined in {{joined}} </span>
+        </div>
+        <div class="description">
+          {{name}} is a {{role}} working in the {{section}}.
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="paw icon"></i>
+          {{animalsCaredFor}} animals cared for
+        </a>
+      </div>
+
+    </div>
+    {{/each}}
+  </div>
+
+
+</section>
+<section class="ui segment" style="text-align: center;">
+  <h3>Find us here!</h3>
+  <img src="/map.png" width="1000">
+
+  <div class="ui five statistics" style="margin-top: 1em;">
+
+    {{#with info}}
+
+    <div class="statistic">
+      <div class="value">
+        <i class="paw icon"></i>
+      </div>
+      <div class="label">
+        App Title: <br>
+        {{appTitle}}
+      </div>
+    </div>
+
+    <div class="statistic">
+      <div class="value">
+        <i class="code branch icon"></i>
+      </div>
+      <div class="label">
+        App Version: <br>
+        Version {{version}}
+      </div>
+    </div>
+
+    <div class="statistic">
+      <div class="value">
+        <i class="map pin icon"></i>
+      </div>
+      <div class="label">
+        Made in: <br>
+        {{location}}
+      </div>
+    </div>
+
+    <div class="statistic">
+      <div class="value">
+        <i class="user icon"></i>
+      </div>
+      <div class="label">
+        Created by: <br>
+        {{creators.0.name}}
+      </div>
+    </div>
+
+    <div class="statistic">
+      <div class="value">
+        <i class="camera icon"></i>
+      </div>
+      <div class="label">
+        Photos by: <br>
+        {{creators.1.name}}
+      </div>
+    </div>
+
+    {{/with}}
+
+  </div>
 </section>

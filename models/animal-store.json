@@ -1,0 +1,81 @@
+{
+  "animals": [
+    {
+      "id": "01",
+      "species": "Lion",
+      "image":"/lions.jpg",
+      "animals": [
+        {
+          "id": "04",
+          "name": "Timmy",
+          "age": "8",
+          "favoriteFood": "Beef",
+          "image": "/lion1.webp"
+        },
+        {
+          "id": "05",
+          "name": "Leo",
+          "age": "6",
+          "favoriteFood": "Chicken",
+          "image": "/lion2.jpg"
+        },
+        {
+          "id": "06",
+          "name": "Nala",
+          "age": "7",
+          "favoriteFood": "Pork",
+          "image": "/lion3.webp"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "species": "Elephant",
+      "image":"/elephants.avif",
+      "animals": [
+        {
+          "id": "07",
+          "name": "Ellie",
+          "age": "10",
+          "favoriteFood": "Grass",
+          "image": "/elephant1.avif"
+        },
+        {
+          "id": "08",
+          "name": "Dumbo",
+          "age": "12",
+          "favoriteFood": "Bananas",
+          "image": "/elephant2.webp"
+        },
+        {
+          "id": "09",
+          "name": "Manny",
+          "age": "9",
+          "favoriteFood": "Leaves",
+          "image": "/elephant3.jpg"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "species": "Monkey",
+      "image":"/newMonkeys.jpg",
+      "animals": [
+        {
+          "id": "10",
+          "name": "Marty",
+          "age": "5",
+          "favoriteFood": "Mangoes",
+          "image": "/monkey1.webp"
+        },
+        {
+          "id": "11",
+          "name": "Chico",
+          "age": "4",
+          "favoriteFood": "Bananas",
+          "image": "/monkey2.jpg"
+        }
+      ]
+    }
+  ]
+}

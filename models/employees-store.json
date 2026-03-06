@@ -1,0 +1,31 @@
+{
+  "employees": [
+    {
+      "name": "Steve",
+      "fullname": "Steve Smith",
+      "image": "/zookeeper2.webp",
+      "joined": 2016,
+      "role": "Senior Zookeeper",
+      "section": "Savannah Habitat",
+      "animalsCaredFor": 8
+    },
+    {
+      "name": "Bill",
+      "fullname": "Bill Philips",
+      "image": "/zookeeper2.avif",
+      "joined": 2013,
+      "role": "Elephant Specialist",
+      "section": "Elephant Plains",
+      "animalsCaredFor": 5
+    },
+    {
+      "name": "Jenny",
+      "fullname": "Jenny Johnson",
+      "image": "/zookeeper2.jpg",
+      "joined": 2014,
+      "role": "Primate Specialist",
+      "section": "Monkey Enclosure",
+      "animalsCaredFor": 12
+    }
+  ]
+}

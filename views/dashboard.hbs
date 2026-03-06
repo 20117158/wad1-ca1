@@ -2,9 +2,47 @@
 
 <section class="ui left aligned middle aligned segment">
   
-    <h2>dashboard</h2>
-      <p>
-        Playlists will be displayed here
-      </p>
+  <h2>Meet some of our animal friends!</h2>
+  
+  {{#unless animalCollection}}
+    <h3 class="ui message">
+      Start adding your animal groups!
+    </h3>
+  {{/unless}}
+
+  <div class="ui centered link cards">
+
+    {{#each animalCollection}}
+      <div class="ui card">
+
+        <div class="image">
+          <img src={{image}}>
+        </div>
+
+        <div class="content">
+          <div class="header">{{species}}s</div>
+
+          {{#if animals}}
+            <div class="description">
+              Animals: {{animals.length}}
+            </div>
+          {{else}}
+            <div class="description">
+              No animals in this group!
+            </div>
+          {{/if}}
+        </div>
+
+        <div class="extra content">
+          <a href="/animals/{{id}}">
+            <i class="paw icon"></i> Meet the {{species}}s!
+          </a>
+        </div>
+
+      </div>
+    {{/each}}
+
+  </div>
 
 </section>
+
