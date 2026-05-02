@@ -2,7 +2,12 @@
   <td>{{name}}</td>
   <td>{{age}}</td>
   <td>{{favoriteFood}}</td>
-  <td><img src={{image}} width="120"></td>
+  <td><img src={{image.url}} width="120"></td>
+    <td class="center aligned">
+    <button title="Edit animal" class="editSubmit" id="showEdit{{@index}}">
+      <i class="ui pencil icon"></i>
+    </button>
+  </td>
   <td class="center aligned">
     <a href="/animals/{{animalId}}/deleteanimal/{{id}}"
        title="Delete animal">

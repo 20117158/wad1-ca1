@@ -14,36 +14,59 @@ const animalstore = {
   getAnimal(id) {
     return this.store.findOneBy(this.collection, (animal) => animal.id === id);
   },
-  addAnimal(speciesId, animal) {
-    this.store.addItem(this.collection, speciesId, "animals", animal);
-},
-removeAnimal(speciesId, animalId) {
-  this.store.removeItem(this.collection, speciesId, "animals", animalId);
-},
-async addSpecies(species, file, response) {
+async addAnimal(speciesId, animal, file, response) {
   try {
-    species.image = await this.store.addToCloudinary(file);
-    this.store.addCollection(this.collection, species);
+    animal.image = await this.store.addToCloudinary(file);
+    this.store.addItem(this.collection, speciesId, this.array, animal);
     response();
   } catch (error) {
-    logger.error("Error processing species:", error);
+    logger.error("Error processing animal:", error);
     response(error);
   }
 },
-
-async removeSpecies(id, response) {
-  const species = this.store.findOneBy(this.collection, (s) => s.id === id);
-  if (species.image && species.image.public_id) {
-    try {
-      await this.store.deleteFromCloudinary(species.image.public_id);
-      logger.info("Cloudinary image deleted");
-    } catch (err) {
-      logger.error("Failed to delete Cloudinary image:", err);
+  removeAnimal(speciesId, animalId) {
+    this.store.removeItem(this.collection, speciesId, "animals", animalId);
+  },
+async updateAnimal(speciesId, animalId, updatedAnimal, file, response) {
+  try {
+    if (file) {
+      updatedAnimal.image = await this.store.addToCloudinary(file);
+    } else {
+      const existing = this.store.findOneBy(this.collection, (s) => s.id === speciesId);
+      const existingAnimal = existing.animals.find((a) => a.id === animalId);
+      updatedAnimal.image = existingAnimal.image;
     }
+    this.store.editItem(this.collection, speciesId, animalId, this.array, updatedAnimal);
+    if (response) response();
+  } catch (error) {
+    logger.error("Error updating animal:", error);
+    if (response) response(error);
   }
-  this.store.removeCollection(this.collection, species);
-  response();
 },
+  async addSpecies(species, file, response) {
+    try {
+      species.image = await this.store.addToCloudinary(file);
+      this.store.addCollection(this.collection, species);
+      response();
+    } catch (error) {
+      logger.error("Error processing species:", error);
+      response(error);
+    }
+  },
+
+  async removeSpecies(id, response) {
+    const species = this.store.findOneBy(this.collection, (s) => s.id === id);
+    if (species.image && species.image.public_id) {
+      try {
+        await this.store.deleteFromCloudinary(species.image.public_id);
+        logger.info("Cloudinary image deleted");
+      } catch (err) {
+        logger.error("Failed to delete Cloudinary image:", err);
+      }
+    }
+    this.store.removeCollection(this.collection, species);
+    response();
+  },
 };
 
 export default animalstore;

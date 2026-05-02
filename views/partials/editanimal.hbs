@@ -1,0 +1,44 @@
+<tr class="hide" id="edit{{@index}}" style="display:none;">
+  <td colspan="6">
+    <form class="ui stacked segment form" method="POST" action="/animals/{{animalId}}/updateanimal/{{id}}" enctype="multipart/form-data">
+      <div class="fields">
+        <div class="field">
+          <span class="ui input">
+            <input type="text" name="name" autofocus required
+              title="Please include a valid Name"
+              placeholder="Name" value="{{name}}">
+          </span>
+        </div>
+        <div class="field">
+          <span class="ui input">
+            <input type="text" name="age" required
+              title="Please include a valid Age"
+              placeholder="Age" value="{{age}}">
+          </span>
+        </div>
+        <div class="field">
+          <span class="ui input">
+            <input type="text" name="favoriteFood" required
+              title="Please include a valid Food"
+              placeholder="Favorite Food" value="{{favoriteFood}}">
+          </span>
+        </div>
+        <div class="field">
+          <input type="file" name="image">
+        </div>
+        <div class="field">
+          <button type="reset" class="editSubmit" id="hideEdit{{@index}}"
+                  title="Exit without saving">
+            <i class="ui undo icon"></i>
+          </button>
+        </div>
+        <div class="field">
+          <button type="submit" class="editSubmit"
+                  title="Save changes">
+            <i class="ui save icon"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </td>
+</tr>

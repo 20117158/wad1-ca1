@@ -1,4 +1,3 @@
-
 {{#if singleSpecies.animals}}
 
   <table class="ui unstackable striped table">
@@ -9,14 +8,29 @@
         <th>Favorite Food</th>
         <th>Image</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-{{#each singleSpecies.animals}}
-  {{> listOneAnimal animalId=../id}}
-{{/each}}
+      {{#each singleSpecies.animals}}
+        {{> listOneAnimal animalId=../singleSpecies.id}}
+        {{> editanimal animalId=../singleSpecies.id}}
+      {{/each}}
     </tbody>
   </table>
+
+  {{#each singleSpecies.animals}}
+    <script>
+      document.querySelector("#showEdit{{@index}}").addEventListener('click', () => {
+        document.querySelector("#animal{{@index}}").style.display = "none";
+        document.querySelector("#edit{{@index}}").style.display = "table-row";
+      })
+      document.querySelector("#hideEdit{{@index}}").addEventListener('click', () => {
+        document.querySelector("#animal{{@index}}").style.display = "table-row";
+        document.querySelector("#edit{{@index}}").style.display = "none";
+      })
+    </script>
+  {{/each}}
 
 {{else}}
   <h3 class="ui message">

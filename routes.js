@@ -22,4 +22,5 @@ router.get('/animals/:id/addanimal', animals.addAnimalView);
 router.post('/animals/:id/addanimal', animals.addAnimal);
 router.get('/animals/:id/deleteanimal/:animalid', animals.deleteAnimal);
 router.get('/dashboard/deletespecies/:id', dashboard.deleteSpecies);
+router.post('/animals/:id/updateanimal/:animalid', animals.updateAnimal);
 export default router;
