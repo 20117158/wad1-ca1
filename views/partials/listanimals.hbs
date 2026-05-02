@@ -8,25 +8,13 @@
         <th>Age</th>
         <th>Favorite Food</th>
         <th>Image</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      {{#each singleSpecies.animals}}
-        <tr>
-          <td>
-            {{name}}
-          </td>
-          <td>
-            {{age}}
-          </td>
-          <td>
-            {{favoriteFood}}
-          </td>
-          <td>
-            <img src={{image}} width="120">
-          </td>
-        </tr>
-      {{/each}}
+{{#each singleSpecies.animals}}
+  {{> listOneAnimal animalId=../id}}
+{{/each}}
     </tbody>
   </table>
 

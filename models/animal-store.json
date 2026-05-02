@@ -1,9 +1,9 @@
 {
-  "animals": [
+  "zooanimals": [
     {
       "id": "01",
       "species": "Lion",
-      "image":"/lions.jpg",
+      "image": "/lions.jpg",
       "animals": [
         {
           "id": "04",
@@ -31,7 +31,7 @@
     {
       "id": "02",
       "species": "Elephant",
-      "image":"/elephants.avif",
+      "image": "/elephants.avif",
       "animals": [
         {
           "id": "07",
@@ -59,7 +59,7 @@
     {
       "id": "03",
       "species": "Monkey",
-      "image":"/newMonkeys.jpg",
+      "image": "/newMonkeys.jpg",
       "animals": [
         {
           "id": "10",

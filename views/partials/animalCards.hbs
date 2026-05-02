@@ -1,0 +1,25 @@
+<div class="ui card">
+  <div class="image">
+    <img src="{{image}}">
+  </div>
+  <div class="content">
+    <a class="header">{{species}}</a>
+    <p>
+      <i class="paw icon"></i>
+      {{#if animals}}
+        Total animals: {{animals.length}}
+      {{else}}
+        No animals in this group!
+      {{/if}}
+    </p>
+  </div>
+
+  <div class="extra content">
+    <a href="/animals/{{id}}">
+      <i class="ui open folder outline black icon"></i>
+    </a>
+    <a href="/dashboard/deletespecies/{{id}}">
+      <i class="ui black trash icon"></i>
+    </a>
+  </div>
+</div>
