@@ -1,0 +1,24 @@
+<section class="dashboard-header">
+  <h2 class="title">Animal Dashboard</h2>
+  <form action="/dashboard" method="GET" class="ui form">
+    <div class="ui inline fields">
+      <div class="field">
+        <input type="text" name="searchTerm" placeholder="Search by species..." value="{{search}}">
+      </div>
+      <div class="field">
+        <label>Sort by:</label>
+        <select class="ui dropdown" name="sort" onchange="this.form.submit()">
+          <option value="species" {{#if speciesSelected}}selected{{/if}}>Species</option>
+          <option value="count" {{#if countSelected}}selected{{/if}}>Animal Count</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Order:</label>
+        <select class="ui dropdown" name="order" onchange="this.form.submit()">
+          <option value="asc" {{#if ascSelected}}selected{{/if}}>↑</option>
+          <option value="desc" {{#if descSelected}}selected{{/if}}>↓</option>
+        </select>
+      </div>
+    </div>
+  </form>
+</section>

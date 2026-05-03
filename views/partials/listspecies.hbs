@@ -1,15 +1,16 @@
 <section class="ui left aligned middle aligned segment">
-  
-  <h2>Meet some of our animal friends!</h2>
-  
-  {{#unless animalCollection}}
-    <h3 class="ui message">
-      Start adding your animal groups!
-    </h3>
+
+  {{> dashboardheader}}
+
+  {{#unless search}}
+    {{#unless animalCollection}}
+      <h3 class="ui message">
+        Start adding your animal groups!
+      </h3>
+    {{/unless}}
   {{/unless}}
 
   <div class="ui centered link cards">
-
     {{#each animalCollection}}
       <div class="ui card">
         <div class="image">
@@ -26,7 +27,6 @@
             {{/if}}
           </p>
         </div>
-
         <div class="extra content">
           <a href="/animals/{{id}}">
             <i class="ui open folder outline black icon"></i>
@@ -37,7 +37,6 @@
         </div>
       </div>
     {{/each}}
-
   </div>
 
 </section>

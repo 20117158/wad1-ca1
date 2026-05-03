@@ -67,6 +67,12 @@ async updateAnimal(speciesId, animalId, updatedAnimal, file, response) {
     this.store.removeCollection(this.collection, species);
     response();
   },
+  searchAnimals(search) {
+  return this.store.findBy(
+    this.collection,
+    (animal) => animal.species.toLowerCase().includes(search.toLowerCase())
+  );
+},
 };
 
 export default animalstore;
