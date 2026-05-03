@@ -3,22 +3,23 @@
 import logger from '../utils/logger.js';
 import animalstore from '../models/animal-store.js';
 import { v4 as uuidv4 } from 'uuid';
+import accounts from './accounts.js';
 // Defining the animals object
 const animals = {
   //method to create the view
-  createView(request, response) {
-    //setting ids
-    const animalId = request.params.id;
-    logger.debug(`animal id = ${animalId}`);
-    //Getting the data that will be used
-    const viewData = {
-      title: 'Animals',
-      singleSpecies: animalstore.getAnimal(animalId)
-    };
-    // Renders the template and passes the "View data" object
-    logger.debug(`singleSpecies = ${JSON.stringify(viewData.singleSpecies)}`);  // add this
-    response.render('collectionDetails', viewData);
-  },
+createView(request, response) {
+  const animalId = request.params.id;
+  const loggedInUser = accounts.getCurrentUser(request);
+  logger.debug(`animal id = ${animalId}`);
+  const viewData = {
+    title: 'Animals',
+    singleSpecies: animalstore.getAnimal(animalId),
+    fullname: loggedInUser.firstName + ' ' + loggedInUser.lastName,
+    picture: loggedInUser.picture,
+  };
+  logger.debug(`singleSpecies = ${JSON.stringify(viewData.singleSpecies)}`);
+  response.render('collectionDetails', viewData);
+},
   addAnimal(request, response) {
     const animalId = request.params.id;
     const newAnimal = {
@@ -31,17 +32,19 @@ const animals = {
       response.redirect('/animals/' + animalId);
     });
   },
-  addAnimalView(request, response) {
-    const animalId = request.params.id;
-    logger.debug(`addAnimalView id = ${animalId}`);
-
-    const viewData = {
-      title: 'Add Animal',
-      species: animalstore.getAnimal(animalId),
-    };
-    logger.debug(`species = ${JSON.stringify(viewData.species)}`);
-    response.render('addanimal', viewData);
-  },
+addAnimalView(request, response) {
+  const animalId = request.params.id;
+  const loggedInUser = accounts.getCurrentUser(request);
+  logger.debug(`addAnimalView id = ${animalId}`);
+  const viewData = {
+    title: 'Add Animal',
+    species: animalstore.getAnimal(animalId),
+    fullname: loggedInUser.firstName + ' ' + loggedInUser.lastName,
+    picture: loggedInUser.picture,
+  };
+  logger.debug(`species = ${JSON.stringify(viewData.species)}`);
+  response.render('addanimal', viewData);
+},
 updateAnimal(request, response) {
   const animalId = request.params.id;
   const animalItemId = request.params.animalid;

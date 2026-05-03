@@ -1,18 +1,15 @@
 <nav class="ui stackable menu">
-  
-  <header class="ui header item"> 
-    <!--     Change the link below to suit your app -->
-    <a href="/">  The Zoo </a>
-  </header>
-  
+  <header class="ui header item"> <a href="/dashboard"> The Zoo </a></header>
   <div class="right menu">
-    <a id="dashboard" class="item" href="/dashboard"> Animals  </a>
-    
-    <a id="about" class="item" href="/about"> About  </a>
+    <span class="name">{{fullname}}</span>
+    <img class="ui avatar image" src="{{picture}}" style="vertical-align: middle; position: relative; top: 15px;">
+    <a id="dashboard" class="item" href="/dashboard"> Dashboard </a>
+    <a id="about" class="item" href="/about"> About </a>
+    <a id="stats" class="item" href="/stats"> Statistics </a>
+    <a id="logout" class="item" href="/logout"> Logout </a>
   </div>
-  
 </nav>
 
 <script>
- document.querySelector("#{{id}}").classList.add("active");
+  document.querySelector("#{{id}}").classList.add("active");
 </script>

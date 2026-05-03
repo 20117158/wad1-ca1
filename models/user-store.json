@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "firstName": "john",
+      "lastName": "johnson",
+      "email": "john@gmail.com",
+      "password": "secret",
+      "id": "1b1e4718-1baf-4fe6-a7be-c954bd132997",
+      "picture": "http://res.cloudinary.com/dy4eojfeh/image/upload/v1777832153/gcvvbwwwsj5qkamimd05.png",
+      "pictureId": "gcvvbwwwsj5qkamimd05"
+    }
+  ]
+}
