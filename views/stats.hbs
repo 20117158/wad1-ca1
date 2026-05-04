@@ -1,0 +1,109 @@
+{{> menu id="stats"}}
+
+<section class="ui center aligned middle aligned segment">
+  <h2>Zoo Statistics</h2>
+</section>
+
+{{#with stats}}
+
+<section class="ui center aligned middle aligned segment">
+  <h3 class="ui header">App Statistics</h3>
+  <div class="ui center aligned grid">
+    <div class="ui sixteen wide column">
+      <div class="ui centered four statistics">
+        <div class="ui statistic">
+          <div class="value"><i class="paw icon"></i></div>
+          <div class="label">Species: {{numSpecies}}</div>
+        </div>
+        <div class="ui red statistic">
+          <div class="value"><i class="heart icon"></i></div>
+          <div class="label">Animals: {{numAnimals}}</div>
+        </div>
+        <div class="ui blue statistic">
+          <div class="value"><i class="balance scale icon"></i></div>
+          <div class="label">Avg per species: {{avgAnimals}}</div>
+        </div>
+        <div class="ui statistic">
+          <div class="value"><i class="red users icon"></i></div>
+          <div class="label">Users: {{numUsers}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="ui sixteen wide column">
+      <div class="ui centered two statistics">
+        <div class="ui green statistic">
+          <div class="value"><i class="arrow up icon"></i></div>
+          <div class="label">
+            Largest: {{maxSize}} animals
+            <table>
+              {{#each largestSpecies}}
+                <tr><td>{{this}}</td></tr>
+              {{/each}}
+            </table>
+          </div>
+        </div>
+        <div class="ui yellow statistic">
+          <div class="value"><i class="arrow down icon"></i></div>
+          <div class="label">
+            Smallest: {{minSize}} animals
+            <table>
+              {{#each smallestSpecies}}
+                <tr><td>{{this}}</td></tr>
+              {{/each}}
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ui center aligned middle aligned segment">
+  <h3 class="ui header">Your Statistics</h3>
+  <div class="ui center aligned grid">
+    <div class="ui sixteen wide column">
+      <div class="ui centered three statistics">
+        <div class="ui statistic">
+          <div class="value"><i class="paw icon"></i></div>
+          <div class="label">Your species: {{numUserSpecies}}</div>
+        </div>
+        <div class="ui red statistic">
+          <div class="value"><i class="heart icon"></i></div>
+          <div class="label">Your animals: {{numUserAnimals}}</div>
+        </div>
+        <div class="ui blue statistic">
+          <div class="value"><i class="balance scale icon"></i></div>
+          <div class="label">Your avg: {{avgUserAnimals}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="ui sixteen wide column">
+      <div class="ui centered two statistics">
+        <div class="ui green statistic">
+          <div class="value"><i class="arrow up icon"></i></div>
+          <div class="label">
+            Your largest: {{userMaxSize}} animals
+            <table>
+              {{#each userLargestSpecies}}
+                <tr><td>{{this}}</td></tr>
+              {{/each}}
+            </table>
+          </div>
+        </div>
+        <div class="ui yellow statistic">
+          <div class="value"><i class="arrow down icon"></i></div>
+          <div class="label">
+            Your smallest: {{userMinSize}} animals
+            <table>
+              {{#each userSmallestSpecies}}
+                <tr><td>{{this}}</td></tr>
+              {{/each}}
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/with}}

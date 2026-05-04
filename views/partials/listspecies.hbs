@@ -16,17 +16,23 @@
         <div class="image">
           <img src="{{image.url}}">
         </div>
-        <div class="content">
-          <a class="header">{{species}}</a>
-          <p>
-            <i class="paw icon"></i>
-            {{#if animals}}
-              Total animals: {{animals.length}}
-            {{else}}
-              No animals in this group!
-            {{/if}}
-          </p>
-        </div>
+<div class="content">
+  <a class="header">{{species}}</a>
+  <p>
+    <i class="paw icon"></i>
+    {{#if animals}}
+      Total animals: {{animals.length}}
+    {{else}}
+      No animals in this group!
+    {{/if}}
+  </p>
+  {{#if date}}
+    <p>
+      <i class="calendar alternate outline icon"></i>
+      Added on <i>{{formatDate date}}</i>
+    </p>
+  {{/if}}
+</div>
         <div class="extra content">
           <a href="/animals/{{id}}">
             <i class="ui open folder outline black icon"></i>
@@ -37,6 +43,15 @@
         </div>
       </div>
     {{/each}}
+    <script>
+  document.querySelectorAll('.ui.card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      const link = card.querySelector('a[href^="/animals/"]');
+      if (link) window.location.href = link.href;
+    });
+  });
+</script>
   </div>
 
 </section>

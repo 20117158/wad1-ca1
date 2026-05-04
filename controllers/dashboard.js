@@ -15,9 +15,9 @@ createView(request, response) {
   if (loggedInUser) {
     const searchTerm = request.query.searchTerm || "";
 
-    const animals = searchTerm
-      ? animalstore.searchAnimals(searchTerm)
-      : animalstore.getAllAnimals();
+const animals = searchTerm
+  ? animalstore.searchUserAnimals(searchTerm, loggedInUser.id)
+  : animalstore.getUserSpecies(loggedInUser.id);
 
     const sortField = request.query.sort;
     const order = request.query.order === "desc" ? -1 : 1;
@@ -55,9 +55,13 @@ createView(request, response) {
   }
 },
 addSpecies(request, response) {
+  const loggedInUser = accounts.getCurrentUser(request);
+  const timestamp = new Date();
   const newSpecies = {
     id: uuidv4(),
+    userid: loggedInUser.id,
     species: request.body.species,
+    date: timestamp,
     animals: [],
   };
   animalstore.addSpecies(newSpecies, request.files.image, function() {

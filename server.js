@@ -17,7 +17,21 @@ app.use(bodyParser.urlencoded({ extended: false, }));
 app.use(cookieParser());
 app.use(fileUpload({useTempFiles: true}));
 
-const handlebars = create({extname: '.hbs'});
+const handlebars = create({
+  extname: '.hbs',
+  helpers: {
+    formatDate: (date) => {
+      let dateCreated = new Date(date);
+      let options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "2-digit",
+      };
+      return `${dateCreated.toLocaleDateString("en-IE", options)}`;
+    },
+  }
+});
 app.engine(".hbs", handlebars.engine);
 app.set("view engine", ".hbs");
 

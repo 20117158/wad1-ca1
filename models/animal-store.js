@@ -73,6 +73,16 @@ async updateAnimal(speciesId, animalId, updatedAnimal, file, response) {
     (animal) => animal.species.toLowerCase().includes(search.toLowerCase())
   );
 },
+getUserSpecies(userid) {
+  return this.store.findBy(this.collection, (animal) => animal.userid === userid);
+},
+
+searchUserAnimals(search, userid) {
+  return this.store.findBy(
+    this.collection,
+    (animal) => animal.userid === userid && animal.species.toLowerCase().includes(search.toLowerCase())
+  );
+},
 };
 
 export default animalstore;

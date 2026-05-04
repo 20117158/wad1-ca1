@@ -12,11 +12,13 @@ import dashboard from './controllers/dashboard.js';
 import about from './controllers/about.js';
 import animals from './controllers/animals.js';
 import accounts from './controllers/accounts.js';
+import stats from './controllers/stats.js'
 
 router.get('/', accounts.index);
 router.get('/dashboard', dashboard.createView);
 router.post('/dashboard/addspecies', dashboard.addSpecies);
 router.get('/about', about.createView);
+router.get('/stats', stats.createView);
 router.get('/error', (request, response) => response.status(404).end('Page not found.'));
 router.get('/animals/:id', animals.createView);
 router.get('/animals/:id/addanimal', animals.addAnimalView);

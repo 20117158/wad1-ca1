@@ -8,6 +8,15 @@
       "id": "1b1e4718-1baf-4fe6-a7be-c954bd132997",
       "picture": "http://res.cloudinary.com/dy4eojfeh/image/upload/v1777832153/gcvvbwwwsj5qkamimd05.png",
       "pictureId": "gcvvbwwwsj5qkamimd05"
+    },
+    {
+      "firstName": "Homer",
+      "lastName": "Simpson",
+      "email": "homer@simpson.com",
+      "password": "Homer",
+      "id": "bb0b9902-846b-425e-8633-85bbd2c8afd0",
+      "picture": "http://res.cloudinary.com/dy4eojfeh/image/upload/v1777913439/i6blqsncnmnh6ng1x80a.jpg",
+      "pictureId": "i6blqsncnmnh6ng1x80a"
     }
   ]
 }
